@@ -27,17 +27,15 @@ class DrawingClassifier:
         self.clf = None
         self.proj_name = None
         self.root = None
-        self.win =None
-        self.intropage = None
+        self.win = None
         self.image1 = None
 
         self.status_label = None
         self.canvas = None
         self.draw = None
         self.brush_width = 15
-        
+
         self.main_menu()
-        self.intropage()
         #self.classes_prompt()
         self.init_gui()
         
@@ -46,35 +44,32 @@ class DrawingClassifier:
         WIDTH = 800
         HEIGHT = 700
         self.win = Tk()
-        self.win.title("DC")
+        self.win.title("Welcome")
         self.win.configure(width=800, height=700)
-        self.win['background'] = '#bddaec'
+        self.win['background'] = '#ccccff'
         # text = Text(self.win)
         # text.insert(INSERT, "learn.ENG")
         # text.pack()
-        title1 = Label(self.win, bg="#bddaec", fg = "#002868", font=("Lucida", 80, 'bold'), text="learn.")
+        #bddaec
+        title1 = Label(self.win, bg="#ccccff", fg = "#002868", font=("Lucida", 80, 'bold'), text="learn.")
         title1.pack()
         title1.place(x=140, y=150)
-        title2 = Label(self.win, bg="#bddaec", fg = "#ff3131", font=("Helvetica", 80), text="ENG")
+        title2 = Label(self.win, bg="#ccccff", fg = "#ff3131", font=("Helvetica", 82, 'bold'), text="英语")
         title2.pack()
         title2.place(x=425, y=150)
         helv36 = tkFont.Font(family='Helvetica', size=25, weight=tkFont.BOLD)
-        start_btn = Button(self.win, text = 'Begin Learning', font = helv36, fg = '#002868', bg='#fdc6ae', height=2, width=15, command=lambda: self.classes_prompt())
+        start_btn = Button(self.win, text = 'Begin Learning\n(开始学习)', font = helv36, fg = '#002868', bg='#ffff9f', height=2, width=15, command=lambda: self.classes_prompt())
         start_btn.place(x=260, y=375)
-        
 
-        self.win.mainloop()
     
-    def intropage(self):
-        self.intropage = Tk()
-        self.intropage.configure(width=800, height = 700)
-        self.intropage['background'] = '#A389C1'
-        # photo = PhotoImage(file='C:\Users\Bhaavya\Desktop\ML project\Photos\498-4982075_custom-mascot-background-tutorial-full-notice-that-penguin.png')
-        # w = Label(self.intro, image=photo)
-        # w.grid(row=3, column=3)
-        self.intropage.mainloop()
+        # img = PIL.ImageTk.PhotoImage(file = r"C:\Users\Bhaavya\Desktop\pandas.jpg")
+        # label = Label(self.win, image=img)
+        # label.pack(x=150, y=600)
+        # img = PhotoImage(file= "C:\Users\Bhaavya\Desktop\pandas.jpg")
+        # mascot = Button(self.root, image=img, command=None).pack()
+        # mascot.place(x=150, y=600)
+        self.win.mainloop()
 
-        
     def classes_prompt(self):
         msg = Tk()
         msg.withdraw()
@@ -129,12 +124,12 @@ class DrawingClassifier:
         WHITE = (42,82,190)
 
         self.root = Tk()
-        #self.root.title(f"NeuralNine Drawing Classifier Alpha v0.2 - {self.proj_name}")
+        self.root.title(f"Chinese to English Translation Tool - {self.proj_name}")
         self.root.configure(width=800, height=700)
         self.root['background'] = '#bddaec'
 
 
-        self.canvas = Canvas(self.root, width=WIDTH-10, height=HEIGHT-5, bg="white")
+        self.canvas = Canvas(self.root, width=WIDTH, height=HEIGHT, bg="white")
         self.canvas.pack(expand=YES, fill=BOTH)
         self.canvas.bind("<B1-Motion>", self.paint)
 
@@ -157,46 +152,46 @@ class DrawingClassifier:
         btn_frame1.columnconfigure(2, weight=1)
         btn_frame1.columnconfigure(3, weight=1)
 
-        class1_btn = Button(btn_frame, text=self.class1, command=lambda: self.save(1))
+        class1_btn = Button(btn_frame, bg = "#fec89a", text=self.class1, command=lambda: self.save(1))
         class1_btn.grid(row=0, column=0, sticky=W + E)
 
-        class2_btn = Button(btn_frame, text=self.class2, command=lambda: self.save(2))
+        class2_btn = Button(btn_frame, bg = "#ffd7ba", text=self.class2, command=lambda: self.save(2))
         class2_btn.grid(row=0, column=1, sticky=W + E)
 
-        class3_btn = Button(btn_frame, text=self.class3, command=lambda: self.save(3))
+        class3_btn = Button(btn_frame, bg = "#fc94af", text=self.class3, command=lambda: self.save(3))
         class3_btn.grid(row=0, column=2, sticky=W + E)
 
-        class4_btn = Button(btn_frame, text=self.class4, command=lambda: self.save(4))
+        class4_btn = Button(btn_frame, bg = "#fec5e5", text=self.class4, command=lambda: self.save(4))
         class4_btn.grid(row=0, column=3, sticky=W + E)
 
-        class5_btn = Button(btn_frame, text=self.class5, command=lambda: self.save(5))
+        class5_btn = Button(btn_frame, bg = "#ffe5d9", text=self.class5, command=lambda: self.save(5))
         class5_btn.grid(row=0, column=4, sticky=W + E)
 
-        bm_btn = Button(btn_frame1, text="Brush-", command=self.brushminus)
+        bm_btn = Button(btn_frame1, bg = "#ffadad", text="Brush 刷子 (-)", command=self.brushminus)
         bm_btn.grid(row=0, column=0, sticky=W + E)
 
-        clear_btn = Button(btn_frame1, text="Clear", command=self.clear)
+        clear_btn = Button(btn_frame1, bg = "#ffadad", text="Clear 擦除", command=self.clear)
         clear_btn.grid(row=0, column=1, sticky=W + E)
 
-        bp_btn = Button(btn_frame1, text="Brush+", command=self.brushplus)
+        bp_btn = Button(btn_frame1, bg= "#ffadad", text="Brush 刷子 (+)", command=self.brushplus)
         bp_btn.grid(row=0, column=2, sticky=W + E)
 
-        train_btn = Button(btn_frame1, text="Train Model", command=self.train_model)
+        train_btn = Button(btn_frame1, bg = "#9daddf", text="Train Model", command=self.train_model)
         train_btn.grid(row=1, column=0, sticky=W + E)
 
-        save_btn = Button(btn_frame1, text="Save Model", command=self.save_model)
+        save_btn = Button(btn_frame1, bg = "#9daddf", text="Save Model", command=self.save_model)
         save_btn.grid(row=1, column=1, sticky=W + E)
 
-        load_btn = Button(btn_frame1, text="Load Model", command=self.load_model)
+        load_btn = Button(btn_frame1, bg = "#9daddf", text="Load Model", command=self.load_model)
         load_btn.grid(row=1, column=2, sticky=W + E)
 
-        change_btn = Button(btn_frame1, text="Change Model", command=self.rotate_model)
+        change_btn = Button(btn_frame1, bg = "#cfb9e5", text="Change Model", command=self.rotate_model)
         change_btn.grid(row=2, column=0, sticky=W + E)
 
-        predict_btn = Button(btn_frame1, text="Predict", command=self.predict)
+        predict_btn = Button(btn_frame1, bg = "#cfb9e5", text="Translate", command=self.predict)
         predict_btn.grid(row=2, column=1, sticky=W + E)
 
-        save_everything_btn = Button(btn_frame1, text="Save Everything", command=self.save_everything)
+        save_everything_btn = Button(btn_frame1,bg= "#cfb9e5", text="Save 节省", command=self.save_everything)
         save_everything_btn.grid(row=2, column=2, sticky=W + E)
 
         self.status_label = Label(btn_frame1, text=f"Current Model: {type(self.clf).__name__}")
@@ -349,6 +344,5 @@ class DrawingClassifier:
                 self.save_everything()
             self.root.destroy()
             exit()
-
 
 DrawingClassifier()
