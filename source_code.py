@@ -22,20 +22,22 @@ from sklearn.linear_model import LogisticRegression
 class DrawingClassifier:
 
     def __init__(self):
-        self.class1, self.class2, self.class3, self.class4, self.class5 = 'A', 'E', 'I', 'O', 'U'
-        self.class1_counter, self.class2_counter, self.class3_counter, self.class4_counter, self.class5_counter= None, None, None, None, None
+        self.class1, self.class2, self.class3, self.class4, self.class5 = None, None, None, None, None
+        self.class1_counter, self.class2_counter, self.class3_counter, self.class4_counter, self.class5_counter = None, None, None, None, None
         self.clf = None
         self.proj_name = None
         self.root = None
         self.win =None
+        self.intropage = None
         self.image1 = None
 
         self.status_label = None
         self.canvas = None
         self.draw = None
-
         self.brush_width = 15
+        
         self.main_menu()
+        self.intropage()
         #self.classes_prompt()
         self.init_gui()
         
@@ -57,11 +59,21 @@ class DrawingClassifier:
         title2.pack()
         title2.place(x=425, y=150)
         helv36 = tkFont.Font(family='Helvetica', size=25, weight=tkFont.BOLD)
-        start_btn = Button(self.win, text = 'Begin Learning', font = helv36, fg = '#002868', bg='#fdc6ae', height=2, width=15, command=lambda: self.init_gui())
+        start_btn = Button(self.win, text = 'Begin Learning', font = helv36, fg = '#002868', bg='#fdc6ae', height=2, width=15, command=lambda: self.classes_prompt())
         start_btn.place(x=260, y=375)
         
 
         self.win.mainloop()
+    
+    def intropage(self):
+        self.intropage = Tk()
+        self.intropage.configure(width=800, height = 700)
+        self.intropage['background'] = '#A389C1'
+        # photo = PhotoImage(file='C:\Users\Bhaavya\Desktop\ML project\Photos\498-4982075_custom-mascot-background-tutorial-full-notice-that-penguin.png')
+        # w = Label(self.intro, image=photo)
+        # w.grid(row=3, column=3)
+        self.intropage.mainloop()
+
         
     def classes_prompt(self):
         msg = Tk()
@@ -71,18 +83,26 @@ class DrawingClassifier:
         if os.path.exists(self.proj_name):
             with open(f"{self.proj_name}/{self.proj_name}_data.pickle", "rb") as f:
                 data = pickle.load(f)
-            # self.class1 = data['c1']
-            # self.class2 = data['c2']
-            # self.class3 = data['c3']
+            self.class1 = data['c1']
+            self.class2 = data['c2']
+            self.class3 = data['c3']
+            self.class4 = data['c4']
+            self.class5 = data['c5']
             self.class1_counter = data['c1c']
             self.class2_counter = data['c2c']
             self.class3_counter = data['c3c']
+            self.class4_counter = data['c4c']
+            self.class5_counter = data['c5c']
             self.clf = data['clf']
             self.proj_name = data['pname']
+            
         else:
-            # self.class1 = simpledialog.askstring("Class 1", "What is the first class called?", parent=msg)
-            # self.class2 = simpledialog.askstring("Class 2", "What is the second class called?", parent=msg)
-            # self.class3 = simpledialog.askstring("Class 3", "What is the third class called?", parent=msg)
+            self.class1 = simpledialog.askstring("Class 1", "What is the first class called?", parent=msg)
+            self.class2 = simpledialog.askstring("Class 2", "What is the second class called?", parent=msg)
+            self.class3 = simpledialog.askstring("Class 3", "What is the third class called?", parent=msg)
+            self.class4 = simpledialog.askstring("Class 4", "What is the fourth class called?", parent=msg)
+            self.class5 = simpledialog.askstring("Class 5", "What is the fifth class called?", parent=msg)
+
 
             self.class1_counter = 1
             self.class2_counter = 1
@@ -90,7 +110,7 @@ class DrawingClassifier:
             self.class4_counter = 1
             self.class5_counter = 1
 
-            self.clf = LinearSVC()
+            self.clf = KNeighborsClassifier()
 
             os.mkdir(self.proj_name)
             os.chdir(self.proj_name)
@@ -100,9 +120,9 @@ class DrawingClassifier:
             os.mkdir(self.class4)
             os.mkdir(self.class5)
             os.chdir("..")
+            self.init_gui()
 
     
-
     def init_gui(self):
         WIDTH = 500
         HEIGHT = 500
@@ -207,6 +227,12 @@ class DrawingClassifier:
         elif class_num == 3:
             img.save(f"{self.proj_name}/{self.class3}/{self.class3_counter}.png", "PNG")
             self.class3_counter += 1
+        elif class_num == 4:
+            img.save(f"{self.proj_name}/{self.class4}/{self.class4_counter}.png", "PNG")
+            self.class4_counter += 1
+        elif class_num == 5:
+            img.save(f"{self.proj_name}/{self.class5}/{self.class5_counter}.png", "PNG")
+            self.class5_counter += 1
 
         self.clear()
 
@@ -242,8 +268,20 @@ class DrawingClassifier:
             img = img.reshape(2500)
             img_list = np.append(img_list, [img])
             class_list = np.append(class_list, 3)
+        
+        for x in range(1, self.class4_counter):
+            img = cv.imread(f"{self.proj_name}/{self.class4}/{x}.png")[:, :, 0]
+            img = img.reshape(2500)
+            img_list = np.append(img_list, [img])
+            class_list = np.append(class_list, 4)
 
-        img_list = img_list.reshape(self.class1_counter - 1 + self.class2_counter - 1 + self.class3_counter - 1, 2500)
+        for x in range(1, self.class5_counter):
+            img = cv.imread(f"{self.proj_name}/{self.class5}/{x}.png")[:, :, 0]
+            img = img.reshape(2500)
+            img_list = np.append(img_list, [img])
+            class_list = np.append(class_list, 5)
+
+        img_list = img_list.reshape(self.class1_counter - 1 + self.class2_counter - 1 + self.class3_counter - 1 + self.class4_counter - 1 + self.class5_counter - 1, 2500)
 
         self.clf.fit(img_list, class_list)
         tkinter.messagebox.showinfo("NeuralNine Drawing Classifier", "Model successfully trained!", parent=self.root)
@@ -263,6 +301,11 @@ class DrawingClassifier:
             tkinter.messagebox.showinfo("NeuralNine Drawing Classifier", f"The drawing is probably a {self.class2}", parent=self.root)
         elif prediction[0] == 3:
             tkinter.messagebox.showinfo("NeuralNine Drawing Classifier", f"The drawing is probably a {self.class3}", parent=self.root)
+        elif prediction[0] == 4:
+            tkinter.messagebox.showinfo("NeuralNine Drawing Classifier", f"The drawing is probably a {self.class4}", parent=self.root)
+        elif prediction[0] == 5:
+            tkinter.messagebox.showinfo("NeuralNine Drawing Classifier", f"The drawing is probably a {self.class5}", parent=self.root)
+
 
     def rotate_model(self):
         if isinstance(self.clf, LinearSVC):
@@ -293,8 +336,8 @@ class DrawingClassifier:
         tkinter.messagebox.showinfo("NeuralNine Drawing Classifier", "Model successfully loaded!", parent=self.root)
 
     def save_everything(self):
-        data = {"c1": self.class1, "c2": self.class2, "c3": self.class3, "c1c": self.class1_counter,
-                "c2c": self.class2_counter, "c3c": self.class3_counter, "clf": self.clf, "pname": self.proj_name}
+        data = {"c1": self.class1, "c2": self.class2, "c3": self.class3, "c4": self.class4, "c5": self.class5, "c1c": self.class1_counter,
+                "c2c": self.class2_counter, "c3c": self.class3_counter, "c4c": self.class4_counter, "c5c": self.class5_counter, "clf": self.clf, "pname": self.proj_name}
         with open(f"{self.proj_name}/{self.proj_name}_data.pickle", "wb") as f:
             pickle.dump(data, f)
         tkinter.messagebox.showinfo("NeuralNine Drawing Classifier", "Project successfully saved!", parent=self.root)
