@@ -89,12 +89,11 @@ class DrawingClassifier:
             self.proj_name = data['pname']
             
         else:
-            self.class1 = simpledialog.askstring("Class 1", "What is the first class called?", parent=msg)
-            self.class2 = simpledialog.askstring("Class 2", "What is the second class called?", parent=msg)
-            self.class3 = simpledialog.askstring("Class 3", "What is the third class called?", parent=msg)
-            self.class4 = simpledialog.askstring("Class 4", "What is the fourth class called?", parent=msg)
-            self.class5 = simpledialog.askstring("Class 5", "What is the fifth class called?", parent=msg)
-
+            self.class1 = 'A'
+            self.class2 = 'E'
+            self.class3 = 'I'
+            self.class4 = 'O'
+            self.class5 = 'E'
 
             self.class1_counter = 1
             self.class2_counter = 1
