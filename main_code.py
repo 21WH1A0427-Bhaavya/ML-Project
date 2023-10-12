@@ -48,15 +48,94 @@ class DrawingClassifier:
         self.win.configure(width=800, height=700)
         self.win['background'] = '#ccccff'
         #bddaec
+        
+        design_label = Label(self.win, bg="#ccccff", fg = "#DE2910", text="⛩️", font=("Arial", 20))
+        design_label.pack()
+        design_label.place(x=25, y=30)
+        design_label = Label(self.win, bg="#ccccff", fg = "#1C3578", text="🪆", font=("Arial", 20))
+        design_label.pack()
+        design_label.place(x=75, y=30)
+        design_label = Label(self.win, bg="#ccccff", fg = "#000000", text="🎎", font=("Arial", 20))
+        design_label.pack()
+        design_label.place(x=125, y=30)
+        design_label = Label(self.win, bg="#ccccff", fg = "#0d5eaf", text="🌍", font=("Arial", 20))
+        design_label.pack()
+        design_label.place(x=175, y=30)
+        design_label = Label(self.win, bg="#ccccff", fg = "#df0029", text="🗾", font=("Arial", 20))
+        design_label.pack()
+        design_label.place(x=225, y=30)
+        
+        design_label = Label(self.win, bg="#ccccff", fg = "#DE2910", text="⛩️", font=("Arial", 20))
+        design_label.pack()
+        design_label.place(x=275, y=30)
+        design_label = Label(self.win, bg="#ccccff", fg = "#1C3578", text="🪆", font=("Arial", 20))
+        design_label.pack()
+        design_label.place(x=325, y=30)
+        design_label = Label(self.win, bg="#ccccff", fg = "#000000", text="🎎", font=("Arial", 20))
+        design_label.pack()
+        design_label.place(x=375, y=30)
+        design_label = Label(self.win, bg="#ccccff", fg = "#0d5eaf", text="🌍", font=("Arial", 20))
+        design_label.pack()
+        design_label.place(x=425, y=30)
+        design_label = Label(self.win, bg="#ccccff", fg = "#df0029", text="🗾", font=("Arial", 20))
+        design_label.pack()
+        design_label.place(x=475, y=30)
+        
+        design_label = Label(self.win, bg="#ccccff", fg = "#DE2910", text="⛩️", font=("Arial", 20))
+        design_label.pack()
+        design_label.place(x=525, y=30)
+        design_label = Label(self.win, bg="#ccccff", fg = "#1C3578", text="🪆", font=("Arial", 20))
+        design_label.pack()
+        design_label.place(x=575, y=30)
+        design_label = Label(self.win, bg="#ccccff", fg = "#000000", text="🎎", font=("Arial", 20))
+        design_label.pack()
+        design_label.place(x=625, y=30)
+        design_label = Label(self.win, bg="#ccccff", fg = "#0d5eaf", text="🌍", font=("Arial", 20))
+        design_label.pack()
+        design_label.place(x=675, y=30)
+        design_label = Label(self.win, bg="#ccccff", fg = "#df0029", text="🗾", font=("Arial", 20))
+        design_label.pack()
+        design_label.place(x=725, y=30)
+    
         title1 = Label(self.win, bg="#ccccff", fg = "#002868", font=("Lucida", 80, 'bold'), text="learn.")
         title1.pack()
         title1.place(x=140, y=150)
-        title2 = Label(self.win, bg="#ccccff", fg = "#ff3131", font=("Helvetica", 82, 'bold'), text="英语")
+        title2 = Label(self.win, bg="#ccccff", fg = "#FF1818", font=("Helvetica", 82, 'bold'), text="eng") 
         title2.pack()
         title2.place(x=425, y=150)
+
+        subtitle1 = Label(self.win, bg="#ccccff", fg = "#DE2910", font=("Lucida", 20, 'bold'), text="中文") #chinese
+        subtitle1.pack()
+        subtitle1.place(x=110, y=300) #60
+        slash1 = Label(self.win, bg="#ccccff", fg = "#1B4769", font=("Lucida", 30, 'bold'), text="|")
+        slash1.pack()
+        slash1.place(x=170, y=290)
+        subtitle2 = Label(self.win, bg="#ccccff", fg = "#1C3578", font=("Lucida", 20, 'bold'), text="русский") #russian
+        subtitle2.pack()
+        subtitle2.place(x=190, y=300)
+        slash2 = Label(self.win, bg="#ccccff", fg = "#1B4769", font=("Lucida", 30, 'bold'), text="|")
+        slash2.pack()
+        slash2.place(x=310, y=290)
+        subtitle3 = Label(self.win, bg="#ccccff", fg = "#000000", font=("Lucida", 20, 'bold'), text="한국인") #korean
+        subtitle3.pack()
+        subtitle3.place(x=330, y=300)
+        slash3 = Label(self.win, bg="#ccccff", fg = "#1B4769", font=("Lucida", 30, 'bold'), text="|")
+        slash3.pack()
+        slash3.place(x=420, y=290)
+        subtitle4 = Label(self.win, bg="#ccccff", fg = "#0d5eaf", font=("Lucida", 20, 'bold'), text="Ελληνικά") #greek
+        subtitle4.pack()
+        subtitle4.place(x=440, y=300)
+        slash4 = Label(self.win, bg="#ccccff", fg = "#1B4769", font=("Lucida", 30, 'bold'), text="|")
+        slash4.pack()
+        slash4.place(x=565, y=290)
+        subtitle5 = Label(self.win, bg="#ccccff", fg = "#df0029", font=("Lucida", 20, 'bold'), text="日本語") #japanese
+        subtitle5.pack()
+        subtitle5.place(x=580, y=300)
+
+
         helv36 = tkFont.Font(family='Helvetica', size=25, weight=tkFont.BOLD)
-        start_btn = Button(self.win, text = 'Begin Learning\n(开始学习)', font = helv36, fg = '#002868', bg='#ffff9f', height=2, width=15, command=lambda: self.classes_prompt())
-        start_btn.place(x=260, y=375)
+        start_btn = Button(self.win, text = 'Begin Learning', font = helv36, fg = '#002868', bg='#ffff9f', height=2, width=15, command=lambda: self.classes_prompt())
+        start_btn.place(x=260, y=400)
 
     
         # img = PIL.ImageTk.PhotoImage(file = r"C:\Users\Bhaavya\Desktop\pandas.jpg")
@@ -93,7 +172,7 @@ class DrawingClassifier:
             self.class2 = 'E'
             self.class3 = 'I'
             self.class4 = 'O'
-            self.class5 = 'E'
+            self.class5 = 'U'
 
             self.class1_counter = 1
             self.class2_counter = 1
@@ -111,6 +190,7 @@ class DrawingClassifier:
             os.mkdir(self.class4)
             os.mkdir(self.class5)
             os.chdir("..")
+
             self.init_gui()
 
     
@@ -120,7 +200,7 @@ class DrawingClassifier:
         WHITE = (42,82,190)
 
         self.root = Tk()
-        self.root.title(f"Chinese to English Translation Tool - {self.proj_name}")
+        self.root.title(f"English Translation Tool - {self.proj_name}")
         self.root.configure(width=800, height=700)
         self.root['background'] = '#bddaec'
 
@@ -148,50 +228,50 @@ class DrawingClassifier:
         btn_frame1.columnconfigure(2, weight=1)
         btn_frame1.columnconfigure(3, weight=1)
 
-        class1_btn = Button(btn_frame, bg = "#fec89a", text=self.class1, font = "Helvetica 20", command=lambda: self.save(1))
+        class1_btn = Button(btn_frame, bg = "#fec89a", text=self.class1, font = "Helvetica 15", command=lambda: self.save(1))
         class1_btn.grid(row=0, column=0, sticky=W + E)
 
-        class2_btn = Button(btn_frame, bg = "#ffd7ba", text=self.class2, font = "Helvetica 20", command=lambda: self.save(2))
+        class2_btn = Button(btn_frame, bg = "#ffd7ba", text=self.class2, font = "Helvetica 15", command=lambda: self.save(2))
         class2_btn.grid(row=0, column=1, sticky=W + E)
 
-        class3_btn = Button(btn_frame, bg = "#fc94af", text=self.class3, font = "Helvetica 20", command=lambda: self.save(3))
+        class3_btn = Button(btn_frame, bg = "#fc94af", text=self.class3, font = "Helvetica 15", command=lambda: self.save(3))
         class3_btn.grid(row=0, column=2, sticky=W + E)
 
-        class4_btn = Button(btn_frame, bg = "#fec5e5", text=self.class4, font = "Helvetica 20", command=lambda: self.save(4))
+        class4_btn = Button(btn_frame, bg = "#fec5e5", text=self.class4, font = "Helvetica 15", command=lambda: self.save(4))
         class4_btn.grid(row=0, column=3, sticky=W + E)
 
-        class5_btn = Button(btn_frame, bg = "#ffe5d9", text=self.class5, font = "Helvetica 20", command=lambda: self.save(5))
+        class5_btn = Button(btn_frame, bg = "#ffe5d9", text=self.class5, font = "Helvetica 15", command=lambda: self.save(5))
         class5_btn.grid(row=0, column=4, sticky=W + E)
 
-        bm_btn = Button(btn_frame1, bg = "#ffadad", text="Brush 刷子 (-)", font = "Helvetica 20", command=self.brushminus)
+        bm_btn = Button(btn_frame1, bg = "#ffadad", text="brush--", font = "Caslon 15", command=self.brushminus)
         bm_btn.grid(row=0, column=0, sticky=W + E)
 
-        clear_btn = Button(btn_frame1, bg = "#ffadad", text="Clear 擦除", font = "Helvetica 20", command=self.clear)
+        clear_btn = Button(btn_frame1, bg = "#ffadad", text="clear", font = "Caslon 15", command=self.clear)
         clear_btn.grid(row=0, column=1, sticky=W + E)
 
-        bp_btn = Button(btn_frame1, bg= "#ffadad", text="Brush 刷子 (+)", font = "Helvetica 20", command=self.brushplus)
+        bp_btn = Button(btn_frame1, bg= "#ffadad", text="brush++", font = "Caslon 15", command=self.brushplus)
         bp_btn.grid(row=0, column=2, sticky=W + E)
 
-        train_btn = Button(btn_frame1, bg = "#9daddf", text="Train Model", font = "Helvetica 20", command=self.train_model)
+        train_btn = Button(btn_frame1, bg = "#9daddf", text="Train Model", font = "Caslon 15", command=self.train_model)
         train_btn.grid(row=1, column=0, sticky=W + E)
 
-        save_btn = Button(btn_frame1, bg = "#9daddf", text="Save Model", font = "Helvetica 20", command=self.save_model)
+        save_btn = Button(btn_frame1, bg = "#9daddf", text="Save Model", font = "Caslon 15", command=self.save_model)
         save_btn.grid(row=1, column=1, sticky=W + E)
 
-        load_btn = Button(btn_frame1, bg = "#9daddf", text="Load Model", font = "Helvetica 20", command=self.load_model)
+        load_btn = Button(btn_frame1, bg = "#9daddf", text="Load Model", font = "Caslon 15", command=self.load_model)
         load_btn.grid(row=1, column=2, sticky=W + E)
 
-        change_btn = Button(btn_frame1, bg = "#cfb9e5", text="Change Model", font = "Helvetica 20", command=self.rotate_model)
+        change_btn = Button(btn_frame1, bg = "#cfb9e5", text="Change Model", font = "Caslon 15", command=self.rotate_model)
         change_btn.grid(row=2, column=0, sticky=W + E)
 
-        predict_btn = Button(btn_frame1, bg = "#cfb9e5", text="Translate 翻译", font = "Helvetica 20", command=self.predict)
+        predict_btn = Button(btn_frame1, bg = "#cfb9e5", text="translate", font = "Caslon 15", command=self.predict)
         predict_btn.grid(row=2, column=1, sticky=W + E)
 
-        save_everything_btn = Button(btn_frame1,bg= "#cfb9e5", text="Save 节省", font = "Helvetica 20", command=self.save_everything)
+        save_everything_btn = Button(btn_frame1,bg= "#cfb9e5", text="save", font = "Caslon 15", command=self.save_everything)
         save_everything_btn.grid(row=2, column=2, sticky=W + E)
 
         self.status_label = Label(btn_frame1, text=f"Current Model: {type(self.clf).__name__}")
-        self.status_label.config(font=("Arial", 13))
+        self.status_label.config(font=("Arial", 12))
         self.status_label.grid(row=3, column=1, sticky=W + E)
 
         self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
@@ -287,15 +367,15 @@ class DrawingClassifier:
         img = img.reshape(2500)
         prediction = self.clf.predict([img])
         if prediction[0] == 1:
-            tkinter.messagebox.showinfo("好工作!", f"The drawing is a *{self.class1}* ", parent=self.root) #good job!
+            tkinter.messagebox.showinfo("Prediction", f"The drawing is a *{self.class1}* ", parent=self.root) #good job!
         elif prediction[0] == 2:
-            tkinter.messagebox.showinfo("好工作!", f"The drawing is a *{self.class2}", parent=self.root)
+            tkinter.messagebox.showinfo("Prediction", f"The drawing is a *{self.class2}", parent=self.root)
         elif prediction[0] == 3:
-            tkinter.messagebox.showinfo("好工作!", f"The drawing is a *{self.class3}*", parent=self.root)
+            tkinter.messagebox.showinfo("Prediction", f"The drawing is a *{self.class3}*", parent=self.root)
         elif prediction[0] == 4:
-            tkinter.messagebox.showinfo("好工作!", f"The drawing is a *{self.class4}*", parent=self.root)
+            tkinter.messagebox.showinfo("Prediction", f"The drawing is a *{self.class4}*", parent=self.root)
         elif prediction[0] == 5:
-            tkinter.messagebox.showinfo("好工作!", f"The drawing is a *{self.class5}*", parent=self.root)
+            tkinter.messagebox.showinfo("Prediction", f"The drawing is a *{self.class5}*", parent=self.root)
 
 
     def rotate_model(self):
@@ -318,23 +398,23 @@ class DrawingClassifier:
         file_path = filedialog.asksaveasfilename(defaultextension="pickle")
         with open(file_path, "wb") as f:
             pickle.dump(self.clf, f)
-        tkinter.messagebox.showinfo("保存成功", "Model successfully saved!", parent=self.root) #succesfully saved
+        tkinter.messagebox.showinfo("Bingo!", "Model successfully saved!", parent=self.root) #succesfully saved
 
     def load_model(self):
         file_path = filedialog.askopenfilename()
         with open(file_path, "rb") as f:
             self.clf = pickle.load(f)
-        tkinter.messagebox.showinfo("已上传", "Model successfully loaded!", parent=self.root) #uploaded
+        tkinter.messagebox.showinfo("Let's Get Started!", "Model successfully loaded!", parent=self.root) #uploaded
 
     def save_everything(self):
         data = {"c1": self.class1, "c2": self.class2, "c3": self.class3, "c4": self.class4, "c5": self.class5, "c1c": self.class1_counter,
                 "c2c": self.class2_counter, "c3c": self.class3_counter, "c4c": self.class4_counter, "c5c": self.class5_counter, "clf": self.clf, "pname": self.proj_name}
         with open(f"{self.proj_name}/{self.proj_name}_data.pickle", "wb") as f:
             pickle.dump(data, f)
-        tkinter.messagebox.showinfo("更新", "Project successfully saved!", parent=self.root) #update
+        tkinter.messagebox.showinfo("Bingo!", "Project successfully saved!", parent=self.root) #update
 
     def on_closing(self):
-        answer = tkinter.messagebox.askyesnocancel("辞职?", "Do you want to save your work?", parent=self.root) #quit
+        answer = tkinter.messagebox.askyesnocancel("Alert!", "Do you want to save your work?", parent=self.root) #quit
         if answer is not None:
             if answer:
                 self.save_everything()
@@ -342,3 +422,4 @@ class DrawingClassifier:
             exit()
 
 DrawingClassifier()
+
