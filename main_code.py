@@ -3,8 +3,10 @@ import os.path
 
 import tkinter.messagebox
 from tkinter import *
+import tkinter as tk
 from tkinter import font as tkFont
 from tkinter import simpledialog, filedialog
+from tkVideoPlayer import TkinterVideo
 
 import PIL
 import PIL.Image, PIL.ImageDraw, PIL.ImageTk
@@ -44,98 +46,54 @@ class DrawingClassifier:
         WIDTH = 800
         HEIGHT = 700
         self.win = Tk()
-        self.win.title("Welcome")
+        self.win.title("Transparent Background")
         self.win.configure(width=800, height=700)
-        self.win['background'] = '#ccccff'
+        #self.win['background'] = '#ccccff'
         #bddaec
         
-        design_label = Label(self.win, bg="#ccccff", fg = "#DE2910", text="⛩️", font=("Arial", 20))
-        design_label.pack()
-        design_label.place(x=25, y=30)
-        design_label = Label(self.win, bg="#ccccff", fg = "#1C3578", text="🪆", font=("Arial", 20))
-        design_label.pack()
-        design_label.place(x=75, y=30)
-        design_label = Label(self.win, bg="#ccccff", fg = "#000000", text="🎎", font=("Arial", 20))
-        design_label.pack()
-        design_label.place(x=125, y=30)
-        design_label = Label(self.win, bg="#ccccff", fg = "#0d5eaf", text="🌍", font=("Arial", 20))
-        design_label.pack()
-        design_label.place(x=175, y=30)
-        design_label = Label(self.win, bg="#ccccff", fg = "#df0029", text="🗾", font=("Arial", 20))
-        design_label.pack()
-        design_label.place(x=225, y=30)
+        player = TkinterVideo(master=self.win, scaled=True)
+        player.load(r"C:\Users\vinny\Downloads\video.mp4") 
+        player.pack(expand=True, fill="both")
+        player.play()
         
-        design_label = Label(self.win, bg="#ccccff", fg = "#DE2910", text="⛩️", font=("Arial", 20))
-        design_label.pack()
-        design_label.place(x=275, y=30)
-        design_label = Label(self.win, bg="#ccccff", fg = "#1C3578", text="🪆", font=("Arial", 20))
-        design_label.pack()
-        design_label.place(x=325, y=30)
-        design_label = Label(self.win, bg="#ccccff", fg = "#000000", text="🎎", font=("Arial", 20))
-        design_label.pack()
-        design_label.place(x=375, y=30)
-        design_label = Label(self.win, bg="#ccccff", fg = "#0d5eaf", text="🌍", font=("Arial", 20))
-        design_label.pack()
-        design_label.place(x=425, y=30)
-        design_label = Label(self.win, bg="#ccccff", fg = "#df0029", text="🗾", font=("Arial", 20))
-        design_label.pack()
-        design_label.place(x=475, y=30)
-        
-        design_label = Label(self.win, bg="#ccccff", fg = "#DE2910", text="⛩️", font=("Arial", 20))
-        design_label.pack()
-        design_label.place(x=525, y=30)
-        design_label = Label(self.win, bg="#ccccff", fg = "#1C3578", text="🪆", font=("Arial", 20))
-        design_label.pack()
-        design_label.place(x=575, y=30)
-        design_label = Label(self.win, bg="#ccccff", fg = "#000000", text="🎎", font=("Arial", 20))
-        design_label.pack()
-        design_label.place(x=625, y=30)
-        design_label = Label(self.win, bg="#ccccff", fg = "#0d5eaf", text="🌍", font=("Arial", 20))
-        design_label.pack()
-        design_label.place(x=675, y=30)
-        design_label = Label(self.win, bg="#ccccff", fg = "#df0029", text="🗾", font=("Arial", 20))
-        design_label.pack()
-        design_label.place(x=725, y=30)
-    
-        title1 = Label(self.win, bg="#ccccff", fg = "#002868", font=("Lucida", 80, 'bold'), text="learn.")
+        title1 = Label(self.win,bg=	"#8C8C8C", fg = "#000000", font=("Lucida", 80, 'bold'), text=" learn.") 
         title1.pack()
-        title1.place(x=140, y=150)
-        title2 = Label(self.win, bg="#ccccff", fg = "#FF1818", font=("Helvetica", 82, 'bold'), text="eng") 
+        title1.place(x=340, y=150)
+        title2 = Label(self.win,bg="#8C8C8C", fg = "#df0029", font=("Helvetica", 82, 'bold'), text="eng ") 
         title2.pack()
-        title2.place(x=425, y=150)
+        title2.place(x=653, y=150)
 
-        subtitle1 = Label(self.win, bg="#ccccff", fg = "#DE2910", font=("Lucida", 20, 'bold'), text="中文") #chinese
+        subtitle1 = Label(self.win, bg="#DCD9D6", fg = "#DE2910", font=("Lucida", 20, 'bold'), text="中文") #chinese
         subtitle1.pack()
-        subtitle1.place(x=110, y=300) #60
-        slash1 = Label(self.win, bg="#ccccff", fg = "#1B4769", font=("Lucida", 30, 'bold'), text="|")
+        subtitle1.place(x=310, y=300) #60
+        slash1 = Label(self.win, bg="#DCD9D6", fg = "#1B4769", font=("Lucida", 30, 'bold'), text="|")
         slash1.pack()
-        slash1.place(x=170, y=290)
-        subtitle2 = Label(self.win, bg="#ccccff", fg = "#1C3578", font=("Lucida", 20, 'bold'), text="русский") #russian
+        slash1.place(x=380, y=290)
+        subtitle2 = Label(self.win, bg="#DCD9D6", fg = "#1C3578", font=("Lucida", 20, 'bold'), text="русский") #russian
         subtitle2.pack()
-        subtitle2.place(x=190, y=300)
-        slash2 = Label(self.win, bg="#ccccff", fg = "#1B4769", font=("Lucida", 30, 'bold'), text="|")
+        subtitle2.place(x=400, y=300)
+        slash2 = Label(self.win, bg="#DCD9D6", fg = "#1B4769", font=("Lucida", 30, 'bold'), text="|")
         slash2.pack()
-        slash2.place(x=310, y=290)
-        subtitle3 = Label(self.win, bg="#ccccff", fg = "#000000", font=("Lucida", 20, 'bold'), text="한국인") #korean
+        slash2.place(x=520, y=290)
+        subtitle3 = Label(self.win, bg="#DCD9D6", fg = "#000000", font=("Lucida", 20, 'bold'), text="한국인") #korean
         subtitle3.pack()
-        subtitle3.place(x=330, y=300)
-        slash3 = Label(self.win, bg="#ccccff", fg = "#1B4769", font=("Lucida", 30, 'bold'), text="|")
+        subtitle3.place(x=545, y=300)
+        slash3 = Label(self.win, bg="#DCD9D6", fg = "#1B4769", font=("Lucida", 30, 'bold'), text="|")
         slash3.pack()
-        slash3.place(x=420, y=290)
-        subtitle4 = Label(self.win, bg="#ccccff", fg = "#0d5eaf", font=("Lucida", 20, 'bold'), text="Ελληνικά") #greek
+        slash3.place(x=640, y=290)
+        subtitle4 = Label(self.win, bg="#DCD9D6", fg = "#0d5eaf", font=("Lucida", 20, 'bold'), text="Ελληνικά") #greek
         subtitle4.pack()
-        subtitle4.place(x=440, y=300)
-        slash4 = Label(self.win, bg="#ccccff", fg = "#1B4769", font=("Lucida", 30, 'bold'), text="|")
+        subtitle4.place(x=660, y=300)
+        slash4 = Label(self.win, bg="#DCD9D6", fg = "#1B4769", font=("Lucida", 30, 'bold'), text="|")
         slash4.pack()
-        slash4.place(x=565, y=290)
-        subtitle5 = Label(self.win, bg="#ccccff", fg = "#df0029", font=("Lucida", 20, 'bold'), text="日本語") #japanese
+        slash4.place(x=790, y=290)
+        subtitle5 = Label(self.win, bg="#DCD9D6", fg = "#FF1818", font=("Lucida", 20, 'bold'), text="日本語") #japanese
         subtitle5.pack()
-        subtitle5.place(x=580, y=300)
-
+        subtitle5.place(x=810, y=300)
 
         helv36 = tkFont.Font(family='Helvetica', size=25, weight=tkFont.BOLD)
         start_btn = Button(self.win, text = 'Begin Learning', font = helv36, fg = '#002868', bg='#ffff9f', height=2, width=15, command=lambda: self.classes_prompt())
-        start_btn.place(x=260, y=400)
+        start_btn.place(x=460, y=400)
 
     
         # img = PIL.ImageTk.PhotoImage(file = r"C:\Users\Bhaavya\Desktop\pandas.jpg")
@@ -203,8 +161,7 @@ class DrawingClassifier:
         self.root.title(f"English Translation Tool - {self.proj_name}")
         self.root.configure(width=800, height=700)
         self.root['background'] = '#bddaec'
-
-
+       
         self.canvas = Canvas(self.root, width=WIDTH, height=HEIGHT, bg="white")
         self.canvas.pack(expand=YES, fill=BOTH)
         self.canvas.bind("<B1-Motion>", self.paint)
@@ -369,7 +326,7 @@ class DrawingClassifier:
         if prediction[0] == 1:
             tkinter.messagebox.showinfo("Prediction", f"The drawing is a *{self.class1}* ", parent=self.root) #good job!
         elif prediction[0] == 2:
-            tkinter.messagebox.showinfo("Prediction", f"The drawing is a *{self.class2}", parent=self.root)
+            tkinter.messagebox.showinfo("Prediction", f"The drawing is a *{self.class2}*", parent=self.root)
         elif prediction[0] == 3:
             tkinter.messagebox.showinfo("Prediction", f"The drawing is a *{self.class3}*", parent=self.root)
         elif prediction[0] == 4:
@@ -422,4 +379,3 @@ class DrawingClassifier:
             exit()
 
 DrawingClassifier()
-
